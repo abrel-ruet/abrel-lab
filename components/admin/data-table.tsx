@@ -101,7 +101,7 @@ export default function DataTable<T extends { id: string }>({
                   <tr key={row.id} className="border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02] transition-colors">
                     {columns.map((col) => (
                       <td key={col.key} className={`px-5 py-4 text-ink-200 align-middle ${col.className || ""}`}>
-                        {col.render ? col.render(row) : String((row as Record<string, unknown>)[col.key] ?? "—")}
+                        {col.render ? col.render(row) : String((row as Record<string, unknown>)[col.key] ?? "-")}
                       </td>
                     ))}
                     {hasActions && (

@@ -31,7 +31,7 @@ export function uploadImageToCloudinary(file: File) {
   return upload(file, "image");
 }
 
-/** For PDFs, datasets, archives etc. — Cloudinary detects the resource type. */
+/** For PDFs, datasets, archives etc. Cloudinary detects the resource type. */
 export function uploadFileToCloudinary(file: File) {
   return upload(file, "auto");
 }

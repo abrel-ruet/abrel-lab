@@ -17,7 +17,7 @@ function buildFields(domains: ResearchDomain[], members: TeamMember[], editing: 
   const blocked = editing ? descendantIds(members, editing.id) : new Set<string>();
   const supervisorOptions = sortByHierarchy(members)
     .filter((m) => !blocked.has(m.id) && m.memberType !== "alumni")
-    .map((m) => ({ label: `${m.name} — ${typeLabel[m.memberType] ?? m.memberType}`, value: m.id }));
+    .map((m) => ({ label: `${m.name} (${typeLabel[m.memberType] ?? m.memberType})`, value: m.id }));
 
   return [
     { key: "image", label: "Photo", type: "image" },
@@ -74,7 +74,7 @@ export default function AdminTeamPage() {
     <CrudPage<TeamMember>
       collection={COLLECTIONS.team}
       title="Team Members"
-      description="Manage faculty, researchers, students, and alumni — and who works under whom in each research domain."
+      description="Manage faculty, researchers, students, and alumni, and who works under whom in each research domain."
       itemLabel="Member"
       fields={(rows, editing) => buildFields(domains, rows, editing)}
       sort={sortByHierarchy}
@@ -96,8 +96,8 @@ export default function AdminTeamPage() {
           ),
         },
         { key: "memberType", label: "Type", render: (r) => <span className="chip">{typeLabel[r.memberType] ?? r.memberType}</span> },
-        { key: "domainId", label: "Domain", render: (r) => <span className="line-clamp-1 max-w-[12rem] block">{domainName.get(r.domainId ?? "") ?? <span className="text-ink-500">—</span>}</span> },
-        { key: "supervisorId", label: "Works Under", render: (r) => memberName.get(r.supervisorId ?? "") ?? <span className="text-ink-500">—</span> },
+        { key: "domainId", label: "Domain", render: (r) => <span className="line-clamp-1 max-w-[12rem] block">{domainName.get(r.domainId ?? "") ?? <span className="text-ink-500">-</span>}</span> },
+        { key: "supervisorId", label: "Works Under", render: (r) => memberName.get(r.supervisorId ?? "") ?? <span className="text-ink-500">-</span> },
         { key: "order", label: "Order" },
       ]}
     />

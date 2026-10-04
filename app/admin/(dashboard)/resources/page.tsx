@@ -47,7 +47,7 @@ export default function AdminResourcesPage() {
         { key: "title", label: "Title", render: (r) => <span className="text-white font-medium">{r.title}</span> },
         { key: "resourceType", label: "Type", render: (r) => <span className="chip capitalize">{r.resourceType}</span> },
         { key: "category", label: "Category" },
-        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">—</span>) },
+        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">-</span>) },
       ]}
     />
   );

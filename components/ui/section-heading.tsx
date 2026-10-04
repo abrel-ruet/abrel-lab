@@ -25,9 +25,9 @@ export default function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.5 }}
-      className={`mb-12 flex flex-col gap-6 ${centered ? "items-center text-center" : "sm:flex-row sm:items-end sm:justify-between"}`}
+      className={`mb-10 sm:mb-12 flex flex-col gap-6 ${centered ? "items-center text-center" : "items-center text-center sm:flex-row sm:items-end sm:justify-between sm:text-left"}`}
     >
-      <div className={centered ? "max-w-2xl" : "max-w-2xl"}>
+      <div className="max-w-2xl">
         <p className="eyebrow mb-3">
           <span className="w-6 h-px bg-aqua-400/60" />
           {eyebrow}

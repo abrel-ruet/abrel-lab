@@ -36,7 +36,7 @@ export default function AdminNewsPage() {
         { key: "title", label: "Title", render: (r) => <span className="text-white font-medium line-clamp-2 max-w-md block">{r.title}</span> },
         { key: "category", label: "Category", render: (r) => <span className="chip">{r.category}</span> },
         { key: "publishedDate", label: "Date", render: (r) => formatDate(r.publishedDate, { month: "short", day: "numeric", year: "numeric" }) },
-        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">—</span>) },
+        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">-</span>) },
       ]}
     />
   );

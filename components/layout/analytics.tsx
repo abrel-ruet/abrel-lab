@@ -6,7 +6,7 @@ import { initAnalytics } from "@/lib/firebase";
 export default function Analytics() {
   useEffect(() => {
     initAnalytics().catch(() => {
-      /* analytics is optional — ignore blocked/unsupported environments */
+      /* analytics is optional; ignore blocked/unsupported environments */
     });
   }, []);
   return null;

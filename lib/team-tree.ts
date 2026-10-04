@@ -7,7 +7,7 @@ export interface TreeNode {
 
 export interface DomainGroup {
   domain: ResearchDomain | null;
-  /** Faculty assigned to this domain — shown as domain leads. */
+  /** Faculty assigned to this domain, shown as domain leads. */
   leads: TeamMember[];
   /** Top-level researchers/students of the domain, each with their mentees nested below. */
   roots: TreeNode[];
@@ -18,7 +18,7 @@ export interface DomainGroup {
 /** Faculty and alumni sit outside the student research trees. */
 export const isTreeMember = (m: TeamMember) => m.memberType === "researcher" || m.memberType === "student";
 
-/** IDs of a member and everyone below them — used to stop admins creating supervision cycles. */
+/** IDs of a member and everyone below them, used to stop admins creating supervision cycles. */
 export function descendantIds(members: TeamMember[], rootId: string): Set<string> {
   const ids = new Set<string>([rootId]);
   let grew = true;

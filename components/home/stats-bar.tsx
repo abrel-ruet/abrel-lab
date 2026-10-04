@@ -59,7 +59,7 @@ export default function StatsBar() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex items-center gap-4"
+                className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left"
               >
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.ring} to-transparent border border-white/[0.08] flex items-center justify-center shrink-0`}>
                   <Icon className={`w-5 h-5 ${stat.color}`} />

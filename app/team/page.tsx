@@ -104,7 +104,7 @@ export default function TeamPage() {
         eyebrow="People"
         title="Our"
         highlight="Team"
-        description="Faculty, researchers, and students organized by research domain — see who works where, and who mentors whom."
+        description="Faculty, researchers, and students organized by research domain. See who works where, and who mentors whom."
       >
         <div className="mt-8 inline-flex rounded-xl border border-white/[0.08] bg-ink-900/70 p-1">
           {viewTabs.map(({ value, label, icon: Icon }) => (

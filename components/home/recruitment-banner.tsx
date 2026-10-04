@@ -19,14 +19,14 @@ export default function RecruitmentBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="relative overflow-hidden rounded-3xl border border-aqua-400/20 p-8 sm:p-12"
+          className="relative overflow-hidden rounded-3xl border border-aqua-400/20 p-6 sm:p-12"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-leaf-600/25 via-aqua-700/25 to-gear-700/40" />
           <div className="absolute inset-0 grid-bg opacity-60" />
           <div className="glow-orb w-80 h-80 -top-20 -right-20 bg-aqua-400/25" />
 
           <div className="relative grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
-            <div>
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <span className="chip chip-leaf mb-5">
                 <GraduationCap className="w-3.5 h-3.5" /> Now recruiting
               </span>
@@ -34,10 +34,10 @@ export default function RecruitmentBanner() {
                 Grow your research career with <span className="gradient-text">ABREL</span>
               </h2>
               <p className="text-ink-200 leading-relaxed mb-8 max-w-xl">
-                We welcome curious BSc, MSc, and PhD researchers who want to engineer biology for real-world impact —
+                We welcome curious BSc, MSc, and PhD researchers who want to engineer biology for real-world impact,
                 from biorefineries and bioremediation to bioinformatics.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
                 <Link href="/recruitment" className="btn-primary">
                   Apply now <ArrowRight className="w-4 h-4" />
                 </Link>

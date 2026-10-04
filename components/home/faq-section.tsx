@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "Do I need prior lab experience?",
-    a: "Prior experience helps but is not required. Motivation, curiosity, and willingness to learn matter most — new members receive training in lab safety, core techniques, and data analysis.",
+    a: "Prior experience helps but is not required. Motivation, curiosity, and willingness to learn matter most. New members receive training in lab safety, core techniques, and data analysis.",
   },
   {
     q: "Does the lab collaborate with industry?",

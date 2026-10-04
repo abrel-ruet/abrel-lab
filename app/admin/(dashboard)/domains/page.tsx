@@ -32,7 +32,7 @@ export default function AdminDomainsPage() {
       sort={(rows) => sortByHierarchy(rows.map((r) => ({ ...r, name: r.name ?? "" })))}
       defaults={(rows) => ({ order: rows.length + 1 })}
       searchKeys={["name"]}
-      describe={(r) => `${r.name}${counts.get(r.id) ? ` — ${counts.get(r.id)} members will become unassigned` : ""}`}
+      describe={(r) => `${r.name}${counts.get(r.id) ? ` (${counts.get(r.id)} members will become unassigned)` : ""}`}
       columns={[
         { key: "name", label: "Domain", render: (r) => <span className="text-white font-medium">{r.name}</span> },
         { key: "description", label: "Description", render: (r) => <span className="line-clamp-1 max-w-md block">{r.description}</span> },

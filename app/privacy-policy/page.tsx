@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
         {
           heading: "Your choices",
           body: [
-            `You may request access to, correction of, or deletion of your data — or unsubscribe from the newsletter — at any time by emailing ${siteConfig.email}.`,
+            `You may request access to, correction of, or deletion of your data, or unsubscribe from the newsletter, at any time by emailing ${siteConfig.email}.`,
           ],
         },
         {

@@ -40,7 +40,7 @@ export default function Newsletter() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
               Subscribe to the <span className="gradient-text">ABREL Newsletter</span>
             </h2>
-            <p className="text-ink-300 mb-8">Research highlights, publications, events, and openings — delivered occasionally.</p>
+            <p className="text-ink-300 mb-8">Research highlights, publications, events, and openings, delivered occasionally.</p>
 
             {state === "done" ? (
               <div className="inline-flex items-center gap-2 text-leaf-300 font-medium">

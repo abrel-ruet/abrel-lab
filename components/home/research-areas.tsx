@@ -23,7 +23,7 @@ export default function ResearchAreas() {
           eyebrow="What we do"
           title="Research"
           highlight="Focus Areas"
-          description="Six interconnected themes that take biology from the bench to the bioreactor — and from the bioreactor to real-world impact."
+          description="Six interconnected themes that take biology from the bench to the bioreactor, and from the bioreactor to real-world impact."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

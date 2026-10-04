@@ -7,7 +7,7 @@ export const siteConfig = {
   shortName: "ABREL",
   tagline: "Engineering biology for a sustainable future",
   description:
-    "ABREL advances research in bioprocess engineering, biomass valorization, environmental biotechnology, and sustainable bio-resources — turning living systems into solutions for energy, food, health, and the environment.",
+    "ABREL advances research in bioprocess engineering, biomass valorization, environmental biotechnology, and sustainable bio-resources, turning living systems into solutions for energy, food, health, and the environment.",
   logo: "/abrel-logo.jpeg",
   email: "contact@abrel-lab.org",
   phone: "+880 1XXX-XXXXXX",

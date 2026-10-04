@@ -14,7 +14,7 @@ const fields: FieldConfig[] = [
     required: true,
     placeholder: `${siteConfig.certificatePrefix}-2025-001`,
     half: true,
-    helpText: "Must be uppercase and unique — this is what recipients enter to verify.",
+    helpText: "Must be uppercase and unique. This is what recipients enter to verify.",
   },
   { key: "date", label: "Issue Date", type: "text", required: true, placeholder: "e.g., September 15, 2025", half: true },
   { key: "name", label: "Recipient Name", type: "text", required: true },

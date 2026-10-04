@@ -70,7 +70,7 @@ export default function AdminProjectsPage() {
         { key: "title", label: "Title", render: (r) => <span className="text-white font-medium">{r.title}</span> },
         { key: "researchArea", label: "Area", render: (r) => <span className="line-clamp-1 max-w-[14rem] block">{r.researchArea}</span> },
         { key: "status", label: "Status", render: (r) => <span className="chip capitalize">{r.status}</span> },
-        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">—</span>) },
+        { key: "featured", label: "Featured", render: (r) => (r.featured ? <span className="chip chip-leaf">Yes</span> : <span className="text-ink-500">-</span>) },
       ]}
     />
   );

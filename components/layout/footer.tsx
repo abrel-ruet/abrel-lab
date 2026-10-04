@@ -59,8 +59,8 @@ export default function Footer() {
       <div className="glow-orb w-[480px] h-[480px] -bottom-60 -left-40 bg-leaf-500/10" />
       <div className="glow-orb w-[420px] h-[420px] -bottom-60 -right-32 bg-gear-500/10" />
       <div className="container-xl relative py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
-          <div className="lg:col-span-5">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 mb-12 text-center sm:text-left">
+          <div className="col-span-2 lg:col-span-5 flex flex-col items-center sm:items-start">
             <Link href="/" className="flex items-center gap-3 mb-5">
               <div className="relative w-12 h-12 rounded-full overflow-hidden ring-1 ring-aqua-400/30">
                 <Image src={siteConfig.logo} alt={`${siteConfig.shortName} logo`} fill sizes="48px" className="object-cover" />
@@ -71,11 +71,11 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-ink-300 text-sm leading-relaxed mb-6 max-w-sm">{siteConfig.description}</p>
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3 mb-6 flex flex-col items-center sm:items-start">
               <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-sm text-ink-200 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-aqua-400 shrink-0" /> {siteConfig.email}
               </a>
-              <span className="flex items-start gap-3 text-sm text-ink-200">
+              <span className="flex items-start gap-3 text-sm text-ink-200 text-left">
                 <MapPin className="w-4 h-4 text-leaf-400 shrink-0 mt-0.5" /> {siteConfig.address}
               </span>
               <a href={`tel:${siteConfig.phone.replace(/\s/g, "")}`} className="flex items-center gap-3 text-sm text-ink-200 hover:text-white transition-colors">
@@ -113,7 +113,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2 order-last sm:col-span-1 sm:order-none lg:col-span-3">
             <h3 className="font-semibold text-white text-xs uppercase tracking-[0.18em] mb-5">Research</h3>
             <ul className="space-y-3">
               {researchAreas.map((area) => (

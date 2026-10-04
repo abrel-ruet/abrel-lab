@@ -77,7 +77,7 @@ export default function ContactPage() {
                   <CheckCircle2 className="w-8 h-8 text-leaf-300" />
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-2">Message sent</h2>
-                <p className="text-ink-300 mb-6">Thanks for reaching out — we&apos;ll get back to you soon.</p>
+                <p className="text-ink-300 mb-6">Thanks for reaching out. We&apos;ll get back to you soon.</p>
                 <button onClick={() => setState("idle")} className="btn-ghost">Send another message</button>
               </div>
             ) : (
