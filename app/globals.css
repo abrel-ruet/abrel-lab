@@ -1,0 +1,296 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+ * ABREL dark theme — palette pulled from the lab logo:
+ *   leaf  → the green leaf / DNA strand
+ *   aqua  → the teal helix
+ *   gear  → the blue gear
+ *   ink   → deep navy neutrals (from the logo's outer ring), used for surfaces
+ */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-50: #eef4f8;
+  --color-ink-100: #dbe7ef;
+  --color-ink-200: #b9cdda;
+  --color-ink-300: #8fa9ba;
+  --color-ink-400: #66808f;
+  --color-ink-500: #45606f;
+  --color-ink-600: #2a4252;
+  --color-ink-700: #1a2f3e;
+  --color-ink-800: #11212d;
+  --color-ink-850: #0c1923;
+  --color-ink-900: #08121a;
+  --color-ink-950: #040a10;
+
+  --color-leaf-200: #c8eeb0;
+  --color-leaf-300: #a7e085;
+  --color-leaf-400: #86cf5c;
+  --color-leaf-500: #67b83e;
+  --color-leaf-600: #4f952e;
+  --color-leaf-700: #3c7124;
+
+  --color-aqua-200: #a6eef0;
+  --color-aqua-300: #6ddfe2;
+  --color-aqua-400: #33c6cc;
+  --color-aqua-500: #17a5ad;
+  --color-aqua-600: #10828a;
+  --color-aqua-700: #0e666d;
+
+  --color-gear-200: #b7d6f3;
+  --color-gear-300: #86b9e8;
+  --color-gear-400: #5498d8;
+  --color-gear-500: #2f79bd;
+  --color-gear-600: #22609c;
+  --color-gear-700: #1b4b7a;
+  --color-gear-800: #133a5f;
+
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --radius: 0.875rem;
+  }
+
+  html {
+    background-color: var(--color-ink-950);
+  }
+
+  body {
+    background-color: var(--color-ink-950);
+    color: var(--color-ink-100);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-aqua-400) 35%, transparent);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ink-950);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-700);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-600);
+  }
+
+  select option {
+    background: var(--color-ink-900);
+    color: var(--color-ink-100);
+  }
+}
+
+@layer components {
+  .container-xl {
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-xl { padding-inline: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-xl { padding-inline: 2rem; }
+  }
+
+  .section-pad {
+    padding-block: 5rem;
+  }
+  @media (min-width: 640px) {
+    .section-pad { padding-block: 6.5rem; }
+  }
+
+  /* Leaf → teal → blue, the logo's gradient */
+  .gradient-text {
+    background: linear-gradient(100deg, var(--color-leaf-400) 0%, var(--color-aqua-400) 45%, var(--color-gear-400) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-brand-gradient {
+    background-image: linear-gradient(110deg, var(--color-leaf-500) 0%, var(--color-aqua-500) 50%, var(--color-gear-500) 100%);
+  }
+
+  .glass-card {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-ink-800) 70%, transparent), color-mix(in srgb, var(--color-ink-900) 80%, transparent));
+    border: 1px solid color-mix(in srgb, var(--color-ink-200) 9%, transparent);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+  }
+
+  .glass-card-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-aqua-400) 35%, transparent);
+    box-shadow: 0 18px 40px -18px color-mix(in srgb, var(--color-aqua-500) 45%, transparent);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-ink-950);
+    background-image: linear-gradient(110deg, var(--color-leaf-400) 0%, var(--color-aqua-400) 55%, var(--color-gear-400) 100%);
+    box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--color-aqua-400) 70%, transparent);
+    white-space: nowrap;
+    transition: filter 0.2s, transform 0.2s, opacity 0.2s;
+  }
+  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.55; transform: none; cursor: not-allowed; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--color-ink-100);
+    background: color-mix(in srgb, var(--color-ink-700) 45%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-ink-200) 14%, transparent);
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover {
+    background: color-mix(in srgb, var(--color-ink-700) 75%, transparent);
+    border-color: color-mix(in srgb, var(--color-aqua-400) 40%, transparent);
+    color: white;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-ink-50);
+    background: color-mix(in srgb, var(--color-ink-900) 85%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-ink-200) 12%, transparent);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input-field::placeholder { color: var(--color-ink-400); }
+  .input-field:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--color-aqua-400) 60%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-aqua-400) 15%, transparent);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-ink-200);
+    background: color-mix(in srgb, var(--color-ink-700) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-ink-200) 10%, transparent);
+  }
+  .chip-aqua {
+    color: var(--color-aqua-300);
+    background: color-mix(in srgb, var(--color-aqua-500) 12%, transparent);
+    border-color: color-mix(in srgb, var(--color-aqua-400) 28%, transparent);
+  }
+  .chip-leaf {
+    color: var(--color-leaf-300);
+    background: color-mix(in srgb, var(--color-leaf-500) 12%, transparent);
+    border-color: color-mix(in srgb, var(--color-leaf-400) 28%, transparent);
+  }
+  .chip-gear {
+    color: var(--color-gear-300);
+    background: color-mix(in srgb, var(--color-gear-500) 14%, transparent);
+    border-color: color-mix(in srgb, var(--color-gear-400) 30%, transparent);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-aqua-300);
+  }
+
+  /* Faint lab-grid backdrop */
+  .grid-bg {
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--color-ink-200) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-ink-200) 5%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+
+  .divider-glow {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-aqua-400) 45%, transparent), transparent);
+  }
+}
+
+/* Rich text (Quill) editor — dark skin */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border-color: color-mix(in srgb, var(--color-ink-200) 12%, transparent) !important;
+}
+.ql-toolbar.ql-snow {
+  background: var(--color-ink-800);
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+.ql-container.ql-snow {
+  background: var(--color-ink-900);
+  color: var(--color-ink-50);
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.ql-editor { min-height: 200px; }
+.ql-editor.ql-blank::before { color: var(--color-ink-400) !important; }
+.ql-snow .ql-stroke { stroke: var(--color-ink-200) !important; }
+.ql-snow .ql-fill { fill: var(--color-ink-200) !important; }
+.ql-snow .ql-picker { color: var(--color-ink-200) !important; }
+.ql-snow .ql-picker-options { background: var(--color-ink-800) !important; }
+.ql-snow .ql-tooltip { background: var(--color-ink-800); color: var(--color-ink-100); border-color: var(--color-ink-600); box-shadow: none; }
+.ql-snow .ql-tooltip input[type="text"] { background: var(--color-ink-900); color: var(--color-ink-50); border-color: var(--color-ink-600); }

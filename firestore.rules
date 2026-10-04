@@ -1,0 +1,56 @@
+rules_version = '2';
+
+// ABREL Firestore security rules.
+// Admins are users whose UID has a document in the `admins` collection
+// (create it manually in the Firebase console — see README).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function str(field, maxLen) {
+      return request.resource.data[field] is string
+        && request.resource.data[field].size() <= maxLen;
+    }
+
+    // Admin allowlist: readable by the user themselves, never writable from the client.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // Public content — anyone can read, only admins can write.
+    match /team/{id}           { allow read: if true; allow write: if isAdmin(); }
+    match /domains/{id}        { allow read: if true; allow write: if isAdmin(); }
+    match /publications/{id}   { allow read: if true; allow write: if isAdmin(); }
+    match /projects/{id}       { allow read: if true; allow write: if isAdmin(); }
+    match /news/{id}           { allow read: if true; allow write: if isAdmin(); }
+    match /announcements/{id}  { allow read: if true; allow write: if isAdmin(); }
+    match /resources/{id}      { allow read: if true; allow write: if isAdmin(); }
+    match /certificates/{id}   { allow read: if true; allow write: if isAdmin(); }
+
+    // Public form submissions — anyone can create, only admins can read/manage.
+    match /contactMessages/{id} {
+      allow create: if str('name', 200) && str('email', 200)
+        && str('subject', 300) && str('message', 5000)
+        && request.resource.data.read == false;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /recruitmentApplications/{id} {
+      allow create: if str('name', 200) && str('email', 200)
+        && str('sop', 10000)
+        && request.resource.data.status == 'pending';
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /newsletterSubscribers/{id} {
+      allow create: if str('email', 200)
+        && request.resource.data.keys().hasOnly(['email', 'subscribedAt', 'createdAt', 'updatedAt']);
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
