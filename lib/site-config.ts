@@ -9,9 +9,9 @@ export const siteConfig = {
   description:
     "ABREL advances research in bioprocess engineering, biomass valorization, environmental biotechnology, and sustainable bio-resources, turning living systems into solutions for energy, food, health, and the environment.",
   logo: "/abrel-logo.jpeg",
-  email: "contact@abrel-lab.org",
-  phone: "+880 1XXX-XXXXXX",
-  address: "Department of Bio-Resources Engineering, University Campus",
+  email: "rasel.ruet.lab@gmail.com",
+  phone: "+880 1701-055942",
+  address: "Department of Mechanical Engineering, Rajshahi University of Engineering & Technology, Bangladesh",
   officeHours: "Sunday – Thursday, 9:00 AM – 5:00 PM",
   socials: {
     facebook: "",
