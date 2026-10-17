@@ -150,12 +150,12 @@ export default function Footer() {
             <p className="text-sm text-ink-400">
               Developed by{" "}
               <a
-                href="https://abidhasanrafi.github.io"
+                href="https://www.linkedin.com/in/helal-uddin-714308362"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-aqua-300 hover:text-leaf-300 transition-colors"
               >
-                Md. Abid Hasan Rafi
+                Helal Uddin
               </a>
             </p>
           </div>
